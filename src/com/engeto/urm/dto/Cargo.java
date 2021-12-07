@@ -43,5 +43,14 @@ public class Cargo {
         this.totalPrice = totalPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", weight=" + weight +
+                ", totalPrice=" + totalPrice +
+                '}' + "\n";
+    }
 }
 

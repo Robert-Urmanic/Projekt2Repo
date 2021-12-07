@@ -1,5 +1,6 @@
 package com.engeto.urm.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class Ship {
     private boolean isOnWay;
     private Integer countOfTransports;
     private Integer averageSpeed;
-    public List<Cargo> seznamCargo;
+    public List<Cargo> seznamCargo = new ArrayList<>();
 
     public Ship(Integer id, String name, Integer capacity, boolean isOnWay, Integer countOfTransports, Integer averageSpeed, List<Cargo> seznamCargo) {
         this.id = id;
@@ -70,9 +71,6 @@ public class Ship {
     }
 
     public void setAverageSpeed(Integer averageSpeed) {
-        while (averageSpeed >= 30){
-            setAverageSpeed(new Random().nextInt(101));
-        }
         this.averageSpeed = averageSpeed;
     }
 
@@ -81,6 +79,25 @@ public class Ship {
     }
 
     public void setSeznamCargo(List<Cargo> seznamCargo) {
-        this.seznamCargo = seznamCargo;
+        for (Cargo tempCargo: seznamCargo) {
+            this.seznamCargo.add(tempCargo);
+        }
+    }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", capacity=" + capacity +
+                ", isOnWay=" + isOnWay +
+                ", countOfTransports=" + countOfTransports +
+                ", averageSpeed=" + averageSpeed +
+                ", seznamCargo=" + seznamCargo +
+                '}'+ "\n";
     }
 }

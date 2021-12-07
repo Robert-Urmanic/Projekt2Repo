@@ -8,6 +8,7 @@ public class Route {
     private Port targetPort;
     private Integer distance;
     private LocalDate travelTime;
+    // TODO: 07.12.2021 id lodě 
     private Integer ship_id;
 
     public Integer getShip_id() {

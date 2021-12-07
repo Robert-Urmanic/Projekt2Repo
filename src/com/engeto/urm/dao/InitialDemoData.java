@@ -11,8 +11,14 @@ import java.util.Random;
 public class InitialDemoData {
     private static final SecureRandom random = new SecureRandom();
 
+    public List<Ship> getListOfShips() {
+        return listOfShips;
+    }
+
+    private List<Ship> listOfShips = new ArrayList<>();
     public void initialisation() {
-        List<Ship> listOfShips = new ArrayList<>();
+
+        List<Cargo> temporaryListOfCargo = new ArrayList<>();
         List<Cargo> listOfCargo = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Ship ship = new Ship();
@@ -21,20 +27,22 @@ public class InitialDemoData {
             ship.setCapacity(new Random().nextInt(101));
             ship.setOnWay(new Random().nextBoolean());
             ship.setCountOfTransports(new Random().nextInt(11));
-            ship.setAverageSpeed(new Random().nextInt());
+            ship.setAverageSpeed(ship.getRandomNumber(30,100));
             listOfShips.add(ship);
-            for (int j = 0; j < 2; j++) {
+            for (int j = 1; j <= 2; j++) {
                 Cargo cargo = new Cargo();
                 cargo.setId(i*j);
+                // TODO: 07.12.2021 opravit číslo ID carga 
                 cargo.setDescription(description[random.nextInt(description.length)]);
                 cargo.setWeight(new Random().nextInt(1001));
                 listOfCargo.add(cargo);
+                temporaryListOfCargo.add(cargo);
             }
-            ship.setSeznamCargo(listOfCargo);
-            listOfCargo.clear();
+            ship.setSeznamCargo(temporaryListOfCargo);
+            temporaryListOfCargo.clear();
         }
 
-
+        //System.out.println(listOfShips);
 
     }
     private static String[] description = {
