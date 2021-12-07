@@ -1,5 +1,6 @@
 package com.engeto.urm.dto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,10 +11,10 @@ public class Ship {
     private Integer capacity;
     private boolean isOnWay;
     private Integer countOfTransports;
-    private Integer averageSpeed;
+    private BigDecimal averageSpeed;
     public List<Cargo> seznamCargo = new ArrayList<>();
 
-    public Ship(Integer id, String name, Integer capacity, boolean isOnWay, Integer countOfTransports, Integer averageSpeed, List<Cargo> seznamCargo) {
+    public Ship(Integer id, String name, Integer capacity, boolean isOnWay, Integer countOfTransports, BigDecimal averageSpeed, List<Cargo> seznamCargo) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
@@ -66,11 +67,11 @@ public class Ship {
         this.countOfTransports = countOfTransports;
     }
 
-    public Integer getAverageSpeed() {
+    public BigDecimal getAverageSpeed() {
         return averageSpeed;
     }
 
-    public void setAverageSpeed(Integer averageSpeed) {
+    public void setAverageSpeed(BigDecimal averageSpeed) {
         this.averageSpeed = averageSpeed;
     }
 
